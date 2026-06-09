@@ -1,0 +1,44 @@
+maximum_score: 100
+
+weights:
+  role_match: 40
+  domain_match: 25
+  experience_match: 20
+  location_match: 10
+  keyword_bonus: 5
+
+domain_keywords:
+  banking:
+    - bank
+    - banking
+    - financial
+    - payments
+    - fintech
+    - risk
+    - credit
+  fintech:
+    - payments
+    - fintech
+    - lending
+    - credit
+  product:
+    - product
+    - platform
+    - software
+    - technology
+    - saas
+  consulting:
+    - consulting
+    - advisory
+    - transformation
+    - strategy
+
+bonus_keywords:
+  - MBA
+  - SQL
+  - analytics
+  - agile
+  - scrum
+  - stakeholder
+
+high_score_threshold: 75

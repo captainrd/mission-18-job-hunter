@@ -1,0 +1,74 @@
+name: Mission18 Job Radar
+
+on:
+  schedule:
+    # GitHub Actions cron is UTC. These are 06:00, 12:00, and 18:00 IST.
+    - cron: "30 0 * * *"
+    - cron: "30 6,12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mission18-job-radar
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Restore job database
+        uses: actions/cache/restore@v4
+        with:
+          path: database/jobs.db
+          key: mission18-db-${{ github.run_id }}
+          restore-keys: |
+            mission18-db-
+
+      - name: Morning scan and daily digest
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '30 0 * * *'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MISSION18_DATABASE_PATH: database/jobs.db
+          MISSION18_REPORT_DIR: reports/daily
+          MISSION18_TIMEZONE: Asia/Kolkata
+        run: python main.py --digest
+
+      - name: Intraday scan
+        if: github.event.schedule == '30 6,12 * * *'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MISSION18_DATABASE_PATH: database/jobs.db
+          MISSION18_REPORT_DIR: reports/daily
+          MISSION18_TIMEZONE: Asia/Kolkata
+        run: python main.py
+
+      - name: Save job database
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: database/jobs.db
+          key: mission18-db-${{ github.run_id }}
+
+      - name: Upload daily report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mission18-report-${{ github.run_id }}
+          path: reports/daily/
+          retention-days: 30

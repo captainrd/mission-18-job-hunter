@@ -1,0 +1,154 @@
+companies:
+  - name: JPMorgan Chase
+    domain: banking
+    connector: oracle
+    enabled: true
+    api_url: https://jpmc.fa.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions
+    site_number: CX_1001
+    career_url: https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job
+    search_location: India
+    search_keywords:
+      - Business Analyst
+      - Product Analyst
+      - Risk Analyst
+      - Technology Analyst
+      - Associate Product Manager
+      - Product Owner
+
+  - name: ServiceNow
+    domain: product
+    connector: smartrecruiters
+    enabled: true
+    company_identifier: ServiceNow
+
+  - name: CRED
+    domain: fintech
+    connector: lever
+    enabled: true
+    site: cred
+
+  - name: Barclays
+    domain: banking
+    connector: workday
+    enabled: false
+    base_url: ""
+    tenant: ""
+    site: ""
+
+  - name: Goldman Sachs
+    domain: banking
+    connector: oracle
+    enabled: false
+    api_url: ""
+    site_number: ""
+    career_url: ""
+
+  - name: Morgan Stanley
+    domain: banking
+    connector: oracle
+    enabled: false
+    api_url: ""
+    site_number: ""
+    career_url: ""
+
+  - name: Deutsche Bank
+    domain: banking
+    connector: workday
+    enabled: false
+    base_url: ""
+    tenant: ""
+    site: ""
+
+  - name: HSBC
+    domain: banking
+    connector: workday
+    enabled: false
+    base_url: ""
+    tenant: ""
+    site: ""
+
+  - name: UBS
+    domain: banking
+    connector: workday
+    enabled: false
+    base_url: ""
+    tenant: ""
+    site: ""
+
+  - name: Citi
+    domain: banking
+    connector: workday
+    enabled: false
+    base_url: ""
+    tenant: ""
+    site: ""
+
+  - name: PhonePe
+    domain: fintech
+    connector: greenhouse
+    enabled: false
+    board_token: ""
+
+  - name: Razorpay
+    domain: fintech
+    connector: greenhouse
+    enabled: false
+    board_token: ""
+
+  - name: Atlassian
+    domain: product
+    connector: greenhouse
+    enabled: false
+    board_token: ""
+
+  - name: Adobe
+    domain: product
+    connector: workday
+    enabled: false
+    base_url: ""
+    tenant: ""
+    site: ""
+
+  - name: Oracle
+    domain: product
+    connector: oracle
+    enabled: false
+    api_url: ""
+    site_number: ""
+    career_url: ""
+
+  - name: Freshworks
+    domain: product
+    connector: lever
+    enabled: false
+    site: freshworks
+
+  - name: Deloitte
+    domain: consulting
+    connector: smartrecruiters
+    enabled: false
+    company_identifier: Deloitte
+
+  - name: EY
+    domain: consulting
+    connector: oracle
+    enabled: false
+    api_url: ""
+    site_number: ""
+    career_url: ""
+
+  - name: PwC
+    domain: consulting
+    connector: workday
+    enabled: false
+    base_url: ""
+    tenant: ""
+    site: ""
+
+  - name: Accenture
+    domain: consulting
+    connector: oracle
+    enabled: false
+    api_url: ""
+    site_number: ""
+    career_url: ""

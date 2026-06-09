@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.pytest_cache/
+database/jobs.db
+reports/daily/*.json
+reports/daily/*.md
+reports/weekly/*.md
+!reports/daily/.gitkeep
+!reports/weekly/.gitkeep
+

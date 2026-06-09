@@ -1,0 +1,37 @@
+include_keywords:
+  - Business Analyst
+  - Product Analyst
+  - Risk Analyst
+  - Technology Analyst
+  - Associate Product Manager
+  - Product Owner
+
+exclude_keywords:
+  - Intern
+  - Director
+  - Vice President
+  - Principal
+  - Architect
+  - Senior Director
+
+accepted_locations:
+  - Mumbai
+  - Pune
+  - Bengaluru
+  - Bangalore
+  - Hyderabad
+  - Chennai
+  - Gurugram
+  - Gurgaon
+  - Remote
+
+india_markers:
+  - India
+  - IN
+
+experience:
+  minimum_years: 2
+  maximum_years: 6
+  reject_zero_years: true
+  reject_above_years: 10
+
