@@ -152,3 +152,27 @@ companies:
     api_url: ""
     site_number: ""
     career_url: ""
+
+  - name: Example Ashby Company
+    domain: product
+    connector: ashby
+    enabled: false
+    job_board_name: ""
+
+  - name: Example Custom HTML Company
+    domain: fintech
+    connector: custom_html
+    enabled: false
+    base_url: "https://careers.example.com/jobs"
+    list_selector: ".job-listing"
+    title_selector: ".job-title a"
+    location_selector: ".job-location"
+    url_selector: ".job-title a"
+    id_selector: ".job-title a"
+    id_attribute: "href"
+    posted_date_selector: ".job-date"
+    description_selector: ".job-description"
+    pagination:
+      page_template: "https://careers.example.com/jobs?page={page}"
+      start: 1
+      max_pages: 10
